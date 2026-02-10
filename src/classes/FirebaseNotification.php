@@ -35,16 +35,22 @@ class FirebaseNotification
     // Send the notification
     public function send(): array
     {
-        $payload = [
-            'message' => [
-                'token' => $this->deviceToken,
-                'notification' => [
-                    'title' => $this->title,
-                    'body'  => $this->body
-                ],
-                'data' => $this->data
-            ]
+        $message = [
+            'notification' => [
+                'title' => $this->title,
+                'body'  => $this->body
+            ],
+            'data' => $this->data
         ];
+
+        // Decide recipient: token or topic
+        if (!empty($this->deviceToken)) {
+            $message['token'] = $this->deviceToken;
+        } else {
+            $message['topic'] = 'all';
+        }
+
+        $payload = ['message' => $message];
 
         $ch = curl_init(FirebaseConfig::FCM_URL);
         curl_setopt_array($ch, [
