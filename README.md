@@ -17,21 +17,14 @@ This project is Docker-ready and fully configurable for multiple environments.
 - JSON output for API-friendly responses
 - Easy to extend for **multi-device** or **topic notifications**
 
-├── config/
-│ └── FirebaseConfig.php # Firebase configuration
-├── classes/
-│ ├── FirebaseService.php # OAuth2 token handling
-│ └── FirebaseNotification.php # Notification sending
-└── send.php # Example entry pointications
-
 ---
 
-## Project Structure
+### Project Structure
 
-src/
-├── config/
-│ └── FirebaseConfig.php # Firebase configuration
-├── classes/
-│ ├── FirebaseService.php # OAuth2 token handling
-│ └── FirebaseNotification.php # Notification sending
-└── send.php # Example entry point
+- `src/`
+  - `config/`
+    - `FirebaseConfig.php`: Firebase configuration
+  - `classes/`
+    - `FirebaseService.php`: OAuth2 token handling
+    - `FirebaseNotification.php`: Notification sending
+  - `send.php`: Example entry point
